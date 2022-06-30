@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model CurrencyConverterModel
+@{
+    decimal priceRub = 1000;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    Цена товара в российских рублях @priceRub (данные цб идут от 02/03/2022)
+    <div>
+        <div>
+            <div>
+                @($"Рубль к доллару {@Model.USD}. Цена в долларах {Decimal.Round(Model.ConverterUSD(priceRub),2)}");
+         
+            </div>
+            <div>
+                @($"Рубль к евро {@Model.EUR}. Цена в евро {Decimal.Round(Model.ConverterEURO(priceRub),2)}");
+            </div>
+            <div>
+                @($"Рубль к гривнам {@Model.UAH}. Цена в гривнаx {Decimal.Round(Model.ConverterUAH(priceRub),2)}");
+            </div>
+        </div>
+    </div>
 </div>
